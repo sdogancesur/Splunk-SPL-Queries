@@ -1,0 +1,2 @@
+index="windows" sourcetype="XmlWinEventLog" source="XmlWinEventLog:Security" EventID=5148
+| table _time, Computer
