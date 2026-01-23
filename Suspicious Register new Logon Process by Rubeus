@@ -1,0 +1,3 @@
+# Detects potential use of Rubeus via registered new trusted logon process - T1558.003
+
+index=windows source="XmlWinEventLog:Security" EventID=4611 LogonProcessName=User32LogonProcesss
