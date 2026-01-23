@@ -1,4 +1,5 @@
 # The output is generated if more than 15 NetBIOS drop packets are detected from a single IP address within 2 minutes on the local network.
+# To run the command, you also need to remove any comment lines containing a"#". 
 
 | tstats summariesonly=true count from datamodel=Network_Traffic 
   where 
