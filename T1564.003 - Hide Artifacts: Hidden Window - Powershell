@@ -1,0 +1,2 @@
+index=windows sourcetype=XmlWinEventLog source="XmlWinEventLog:Security" EventID=4688 (parent_process_name="hidden" OR new_process_name="hidden") AND (Process_Command_Line=*hidden* OR Process_Command_Line=*hidden* OR Process_Command_Line=*hidden*)
+| table _time, host, Process_Command_Line
