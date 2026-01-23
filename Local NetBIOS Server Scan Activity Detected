@@ -1,0 +1,10 @@
+# The output is generated if more than 15 NetBIOS drop packets are detected from a single IP address within 2 minutes on the local network.
+
+| tstats summariesonly=true count from datamodel=Network_Traffic 
+  where 
+        All_Traffic.src_ip IN ("10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16")  
+        AND All_Traffic.dest_port IN (139) 
+  by _time, span=2m, All_Traffic.src_ip, All_Traffic.dest_ip, All_Traffic.dest_port, All_Traffic.transport 
+| `drop_dm_object_name("All_Traffic")` 
+| stats dc(dest_ip) AS unique_ips, values(dest_ip) AS ips, values(dest_port) AS dest_ports by _time, src_ip, transport 
+| where unique_ips > 15
