@@ -1,0 +1,2 @@
+index="windows" source="XmlWinEventLog:Security" EventID=4739
+| table _time, Computer, DomainPolicyChanged,
