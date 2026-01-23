@@ -1,0 +1,6 @@
+index=windows EventID=4769 TicketEncryptionType=0x17 source="XmlWinEventLog:Security"
+| stats dc(service) AS service_count
+        values(service) AS service_names
+        by Target_User_Name host
+| where service_count > 1
+| table Target_User_Name host service_count service_names
