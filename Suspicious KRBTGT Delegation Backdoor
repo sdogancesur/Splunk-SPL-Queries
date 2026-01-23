@@ -1,1 +1,3 @@
+# Identifies the modification of the msDS-AllowedToDelegateTo attribute to KRBTGT. Attackers can use this technique to maintain persistence to the domain by having the ability to request tickets for the KRBTGT service.
+
 index=windows EventID=4738 AllowedToDelegateTo="*krbtgt*"
