@@ -1,0 +1,13 @@
+# “This SPL provides output showing external source IP addresses that attempted SSH connections (port 22) to more than 10 unique destination IPs within a 2-minute time window, indicating potential remote SSH scanning activity.”
+# To run the command, you also need to remove any comment lines containing a"#". 
+
+| tstats summariesonly=true count from datamodel=Network_Traffic 
+  where 
+    NOT All_Traffic.src_ip IN ("10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16")   
+    AND All_Traffic.dest_port IN (22) 
+  by _time span=2m All_Traffic.src_ip All_Traffic.dest_ip All_Traffic.dest_port All_Traffic.transport All_Traffic.action 
+| `drop_dm_object_name("All_Traffic")` 
+| stats dc(dest_ip) AS unique_ips, values(dest_ip) AS ips, values(dest_port) AS dest_ports, values(action) AS actions by _time src_ip transport
+| where unique_ips > 10
+| eval detection="Remote SSH Server Scan Activity Detected"
+| table _time src_ip transport unique_ips ips dest_ports actions detection
