@@ -1,0 +1,2 @@
+index="_audit" action=install_app
+| table app_name, checksum, _time
