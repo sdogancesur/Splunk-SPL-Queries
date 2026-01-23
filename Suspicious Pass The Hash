@@ -1,0 +1,1 @@
+index=windows Logon_Type=9 AND EventID=4624 AND AuthenticationPackageName=Negotiate AND LogonProcessName=seclogon
