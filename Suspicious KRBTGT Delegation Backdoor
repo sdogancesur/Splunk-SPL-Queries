@@ -1,0 +1,1 @@
+index=windows EventID=4738 AllowedToDelegateTo="*krbtgt*"
