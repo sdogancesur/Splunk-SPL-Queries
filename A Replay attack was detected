@@ -1,1 +1,2 @@
+#This query retrieves Windows Security events with Event ID 4649, which is related to potential Kerberos replay attack detection.
 index="windows" source="XmlWinEventLog:Security" EventID=4649
