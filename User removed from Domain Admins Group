@@ -1,0 +1,2 @@
+index="windows" sourcetype="XmlWinEventLog" source="XmlWinEventLog:Security" EventCode=4729 Group_Name="Domain Admins"
+| table _time, SubjectUserSid, MemberSid
