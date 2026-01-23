@@ -1,0 +1,2 @@
+index=windows sourcetype=XmlWinEventLog source="XmlWinEventLog:Security" EventID=4688 (parent_process_name="powershell.exe" OR new_process_name="powershell.exe") AND (Process_Command_Line=*-EncodedCommand* OR Process_Command_Line=*FromBase64String* OR Process_Command_Line=*ToBase64String*)
+| table _time, host, Process_Command_Line
