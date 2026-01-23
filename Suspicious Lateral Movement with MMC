@@ -1,0 +1,3 @@
+#This alert aims to detect command execution via MMC using DCOM for lateral movement and privilege escalation, as commonly seen in tools such as dcomexec.py
+
+index=windows EventCode=4688 sourcetype=XmlWinEventLog source=XmlWinEventLog:Security Channel=Security new_process_name="cmd.exe" parent_process_name="mmc.exe"
