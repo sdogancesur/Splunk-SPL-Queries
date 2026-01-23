@@ -1,0 +1,2 @@
+index="windows" sourcetype="XmlWinEventLog" source="XmlWinEventLog:Security" EventCode=4757 Group_Name="Enterprise Admins"
+| table _time, SubjectUserSid, MemberSid
