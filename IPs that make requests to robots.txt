@@ -1,0 +1,6 @@
+#Attackers can target robots.txt. This output is configured according to the Fortigate FW output. Remember to set the source of the log you are receiving.
+
+index=syslog source="<your source>" host="172.22.0.111" vendor_url="*robots.txt*"
+| stats count as "Number of accesses" by srcip
+| rename srcip as "Source IP"
+| sort - "Number of accesses"
