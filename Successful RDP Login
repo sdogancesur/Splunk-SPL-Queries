@@ -1,0 +1,6 @@
+# The following SPL query shows the users, devices, and the number of successful RDP connections per user.
+
+index=windows sourcetype=XmlWinEventLog EventID=4624 Logon_Type=10
+| stats count as user, values(user) as users by host
+| rename user as "Total Number of Enterprises", host as "Device Name", users as "User Name"
+| sort -"Total Number of Enterprises"
