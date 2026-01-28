@@ -1,0 +1,7 @@
+#Please remember to define your own index and source.
+#Suspected IPC$ access is written to catch SMB-based vulnerabilities such as MS17-010, etc.
+
+index=windows source="XmlWinEventLog:Security" EventCode=5140 file_name="\\\\*\\ADMIN$"
+| bin _time span=5
+| stats count as hit_count by host, IpAddress, _time
+| where hit_count > 15
