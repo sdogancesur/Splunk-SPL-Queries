@@ -1,0 +1,3 @@
+# This behavior could stem from normal smartcard/auto-enrollment processes, but it could also be indicative of ADCS abuse (ESC techniques).
+
+index=windows source="XmlWinEventLog:Security" EventCode=4768 TicketOptions="0x4080*" PreAuthType=16
