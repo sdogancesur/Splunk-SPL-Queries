@@ -8,4 +8,4 @@ Some queries may require Data Models (e.g., Network_Traffic, etc.). To view thes
 
 Certain data models, such as `tstats`, may not work with comments containing "#". You may need to remove these comments. Also, commands like `tstats` may not work with time definitions like "Relative" (Last 30 minutes, Last 7 Days, etc.). It is recommended to use the "Date & Time Range" property.
 
-Last Updated -> 28.01.2026
+Last Updated -> 19.02.2026
