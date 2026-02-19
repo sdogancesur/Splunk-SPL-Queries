@@ -1,0 +1,3 @@
+# A suspicious user's certificate request.
+
+index=windows host=<your certificate host> source="XmlWinEventLog:Security" EventCode="488*" Subject="*$*"
